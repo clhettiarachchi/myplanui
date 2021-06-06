@@ -23,8 +23,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and build
         run: |
-          npm install
-          npm run production
+          npm ci
+          npm run production:ci
 
       - name: 📂 Upload project files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -32,5 +32,5 @@ jobs:
           server: server239.web-hosting.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          exclude: public/
+          local-dir: dist/taskapp
           server-dir: ${{ secrets.APP_FOLDER_PATH }}
