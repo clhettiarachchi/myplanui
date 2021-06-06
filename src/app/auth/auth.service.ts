@@ -42,4 +42,8 @@ private currentUser: Observable<User>;
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null as any);
   }
+
+  getUserName() {
+    return this.currentUserSubject.value.name
+  }
 }

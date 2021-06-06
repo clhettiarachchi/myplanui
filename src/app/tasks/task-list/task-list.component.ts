@@ -19,16 +19,16 @@ export class TaskListComponent implements OnInit {
   }
 
   fetch() {
-    this.taskService.getTasksToday().subscribe(tasks => {
-      this.todayTasks = tasks;
+    this.taskService.getTasksToday().subscribe(res => {
+      this.todayTasks = res['data'];
     });
 
-    this.taskService.getTasksTomorrow().subscribe(tasks => {
-      this.tomorrowTasks = tasks;
+    this.taskService.getTasksTomorrow().subscribe(res => {
+      this.tomorrowTasks = res['data'];
     });
 
-    this.taskService.getTasksAfterTomorrow().subscribe(tasks => {
-      this.upcomingTasks = tasks;
+    this.taskService.getTasksAfterTomorrow().subscribe(res => {
+      this.upcomingTasks = res['data'];
     });
   }
 

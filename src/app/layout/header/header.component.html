@@ -1,12 +1,12 @@
-<header class="px-4 pt-4 pb-3 border-bottom">
-  <a routerLink="/"
-    ><h1>{{ title }}</h1></a
-  >
-  <a (click)="logout()">Logout</a>
-  <!-- <app-button
-    *ngIf="hasRoute('/')"
-    text="{{ showAddTask ? 'Close' : 'Add Task' }}"
-    colorClass="{{ showAddTask ? 'btn-danger' : 'btn-success' }}"
-    (btnClick)="toggleAddTask()"
-  ></app-button> -->
+<header class="bg-primary container pt-3 pb-3">
+  <div class="d-flex align-items-center justify-content-between">
+    <h1 class="m-0 text-white">Hi {{ userName | titlecase }}...</h1>
+
+    <button
+      (click)="logout()"
+      class="btn bg-secondary text-white cursor-pointer"
+    >
+      Logout
+    </button>
+  </div>
 </header>

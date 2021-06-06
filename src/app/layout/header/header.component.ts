@@ -10,15 +10,17 @@ import { AuthService } from '@app/auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-title: string = "Task Tracker";
 showAddTask: boolean = false;
 subscription: Subscription;
+
+userName: string = ''
 
   constructor(private uiService: UiService, private router: Router, private authService: AuthService) { 
     this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value);
   }
 
   ngOnInit(): void {
+    this.userName = this.authService.getUserName()
   }
 
   toggleAddTask() {

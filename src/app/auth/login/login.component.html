@@ -1,34 +1,38 @@
-<div class="login-form-wrapper col-md-4 mx-auto border p-4 shadow-sm">
-  <h1>Login</h1>
+<div class="login-page-container">
+  <div class="login-form-wrapper mx-auto p-4 bg-white shadow-sm">
+    <h1>Login</h1>
 
-  <form [formGroup]="loginForm" class="form mt-3" (ngSubmit)="onSubmit()">
-    <mat-form-field class="w-100">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email" placeholder="Email" />
-    </mat-form-field>
-    <!-- <div *ngIf="loginForm.controls.email.errors" class="text-danger">
-      Email is required.
-    </div> -->
+    <form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email" />
+      </mat-form-field>
+      <!-- <div *ngIf="loginForm.controls.email.errors" class="text-danger">
+        Email is required.
+      </div> -->
 
-    <mat-form-field class="w-100">
-      <mat-label>Password</mat-label>
-      <input
-        type="password"
-        matInput
-        formControlName="password"
-        placeholder="Password"
-      />
-    </mat-form-field>
-    <!-- <div *ngIf="loginForm.controls.password.errors" class="text-danger">
-      Password required.
-    </div> -->
-    <p *ngIf="error" class="text-sm text-danger">{{ error }}</p>
-    <button type="submit" class="btn btn-success mt-2 form-control">
-      <span
-        *ngIf="loading"
-        class="spinner-border spinner-border-sm mr-1"
-      ></span>
-      Login
-    </button>
-  </form>
+      <mat-form-field class="w-100">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Password"
+        />
+      </mat-form-field>
+      <!-- <div *ngIf="loginForm.controls.password.errors" class="text-danger">
+        Password required.
+      </div> -->
+      <p *ngIf="error" class="text-sm text-danger">{{ error }}</p>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn ml-auto bg-primary text-white mt-3">
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

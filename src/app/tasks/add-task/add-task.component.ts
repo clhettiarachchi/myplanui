@@ -40,7 +40,6 @@ export class AddTaskComponent implements OnInit {
       title: this.title,
       due_date: moment(this.due_date).format( 'YYYY-MM-DD  HH:mm:ss' ),
       description: this.description,
-      completed: 0
     }
 
     this.taskService.addTask(newTask).subscribe();
