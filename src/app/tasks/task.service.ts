@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable} from "rxjs";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Task } from './Task';
 import { environment } from '@environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
   private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getTasks(): Observable<any> {
     return this.http.get(this.apiUrl + 'tasks');
   }
 
-  getTasksToday(): Observable<any>{
+  getTasksToday(): Observable<any> {
     return this.http.get(this.apiUrl + 'tasks/today');
   }
 
-  getTasksTomorrow(): Observable<any>{
+  getTasksTomorrow(): Observable<any> {
     return this.http.get(this.apiUrl + 'tasks/tomorrow');
   }
 
-  getTasksAfterTomorrow(): Observable<any>{
+  getTasksAfterTomorrow(): Observable<any> {
     return this.http.get(this.apiUrl + 'tasks/after-tomorrow');
   }
 
@@ -41,8 +41,7 @@ export class TaskService {
     return this.http.post(this.apiUrl + 'tasks', task);
   }
 
-  toggleTask(task: Task): Observable<Task> {
-    const isCompleted = !task.completed ? 1 : 0;
-    return this.http.put<Task>(this.apiUrl + 'tasks/' + task.id, { completed: isCompleted });
+  toggleTask(id: number): Observable<any> {
+    return this.http.put<any>(this.apiUrl + 'tasks/toggle/' + id, '');
   }
 }
