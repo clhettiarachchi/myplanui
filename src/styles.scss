@@ -1,0 +1,36 @@
+@import "./assets/scss/custom_theme.scss";
+@import "~bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  max-width: 960px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500 !important;
+  color: #3a3a3a;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+.btn-purple {
+  background-color: rgb(185, 65, 179);
+  color: #fff;
+}
+
+.btn-purple:hover {
+  background-color: rgb(163, 44, 157);
+  color: white;
+}

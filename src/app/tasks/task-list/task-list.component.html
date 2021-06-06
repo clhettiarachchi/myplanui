@@ -1,0 +1,35 @@
+<div class="tasks-list">
+  <!-- Today tasks -->
+  <h3 class="mb-2">Today</h3>
+  <ul class="list-unstyled">
+    <app-task-list-item
+      *ngFor="let task of todayTasks"
+      [task]="task"
+      (deleteTask)="onDeleteTask(task)"
+      (toggleTask)="onToggleTask(task)"
+    ></app-task-list-item>
+  </ul>
+
+  <!-- Tomorrow tasks -->
+  <h3 class="mb-2">Tomorrow</h3>
+  <ul class="list-unstyled">
+    <app-task-list-item
+      *ngFor="let task of tomorrowTasks"
+      [task]="task"
+      (deleteTask)="onDeleteTask(task)"
+      (toggleTask)="onToggleTask(task)"
+    ></app-task-list-item>
+  </ul>
+
+  <!-- Upcoming tasks -->
+  <h3 class="mb-2">Upcoming</h3>
+  <ul class="list-unstyled">
+    <app-task-list-item
+      *ngFor="let task of upcomingTasks"
+      [task]="task"
+      [showDate]="true"
+      (deleteTask)="onDeleteTask(task)"
+      (toggleTask)="onToggleTask(task)"
+    ></app-task-list-item>
+  </ul>
+</div>

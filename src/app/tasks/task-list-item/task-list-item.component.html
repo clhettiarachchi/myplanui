@@ -1,0 +1,29 @@
+<li
+  *ngIf="task"
+  [ngClass]="{ completed: task.completed }"
+  class="task-list-item check-item-group px-2 py-3 mb-3"
+>
+  <div [ngClass]="{ checked: task.completed }" class="custom-checkbox-round">
+    <input
+      (click)="onToggleTask(task.completed)"
+      type="checkbox"
+      id="{{ 'task-list-item-' + task.id }}"
+    />
+    <label for="{{ 'task-list-item-' + task.id }}"></label>
+  </div>
+
+  <div class="label">
+    <div class="task-item-title">
+      {{ task.title }}
+    </div>
+    <div *ngIf="showDate">{{ getDateString(task.due_date) }}</div>
+  </div>
+
+  <mat-icon
+    (click)="onDeleteTask(task.id)"
+    class="delete-button"
+    aria-hidden="false"
+    aria-label="Delete the task"
+    >close</mat-icon
+  >
+</li>

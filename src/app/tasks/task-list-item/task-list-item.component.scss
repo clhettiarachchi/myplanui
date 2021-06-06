@@ -1,0 +1,63 @@
+.check-item-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+}
+
+.delete-button {
+  font-size: 14px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  line-height: 18px;
+  text-align: center;
+  background-color: #bbb;
+  color: white;
+  margin-left: auto;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.completed .task-item-title {
+  text-decoration: line-through;
+}
+
+/* Custom checkbox */
+.custom-checkbox-round {
+  margin-right: 10px;
+}
+
+.custom-checkbox-round input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox-round > label {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  position: relative;
+}
+
+.custom-checkbox-round.checked > label {
+  background-color: rgb(185, 65, 179);
+  border: none;
+}
+
+.custom-checkbox-round.checked > label::after {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 8px;
+  border: 3px solid white;
+  border-radius: 2px;
+  border-top: none;
+  border-right: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  margin-top: -2px;
+}
