@@ -23,8 +23,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and build
         run: |
-          npm ci
-          npm run production:ci
+          npm install
+          npm run production
 
       - name: 📂 Upload project files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
