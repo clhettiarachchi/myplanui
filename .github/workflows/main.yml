@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - main
+
+name: 🚀 Deploy website on push
+jobs:
+  buil-and-deploy:
+    name: 🎉 Build and Deploy
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install and build
+        run: |
+          npm install
+          npm run production
+
+      - name: 📂 Upload project files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: server239.web-hosting.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          exclude: public/
+          server-dir: ${{ secrets.APP_FOLDER_PATH }}
