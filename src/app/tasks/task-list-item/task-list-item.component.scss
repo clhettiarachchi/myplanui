@@ -19,8 +19,11 @@
   cursor: pointer;
 }
 
-.completed .task-item-title {
-  text-decoration: line-through;
+.completed {
+  .task-item-title,
+  .task-item-date {
+    text-decoration: line-through;
+  }
 }
 
 /* Custom checkbox */
