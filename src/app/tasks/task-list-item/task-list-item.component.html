@@ -9,14 +9,16 @@
       type="checkbox"
       id="{{ 'task-list-item-' + task.id }}"
     />
-    <label for="{{ 'task-list-item-' + task.id }}"></label>
+    <label></label>
   </div>
 
-  <div class="label">
-    <div class="task-item-title">
+  <div class="label cursor-pointer">
+    <div class="task-item-title" (click)="onToggleTask(task.completed)">
       {{ task.title }}
     </div>
-    <div *ngIf="showDate">{{ task.due_date | date: "fullDate" }}</div>
+    <div *ngIf="showDate" class="task-item-date">
+      {{ task.due_date | date: "fullDate" }}
+    </div>
   </div>
 
   <mat-icon
