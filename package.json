@@ -1,6 +1,6 @@
 {
   "name": "taskapp",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "production": "ng build --configuration production --base-href https://myplan.betaapps.dev/"
+    "production": "ng build --configuration production --output-path=dist --base-href https://myplan.betaapps.dev/"
   },
   "private": true,
   "dependencies": {
