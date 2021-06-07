@@ -17,7 +17,7 @@
       {{ task.title }}
     </div>
     <div *ngIf="showDate" class="task-item-date">
-      {{ task.due_date | date: "fullDate" }}
+      {{ getDateISOString(task.due_date) | date: "fullDate" }}
     </div>
   </div>
 

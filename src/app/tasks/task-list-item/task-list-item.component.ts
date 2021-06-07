@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task-list-item',
   templateUrl: './task-list-item.component.html',
-  styleUrls: ['./task-list-item.component.scss']
+  styleUrls: ['./task-list-item.component.scss'],
 })
 export class TaskListItemComponent implements OnInit {
   @Input() task: any = '';
@@ -11,23 +11,21 @@ export class TaskListItemComponent implements OnInit {
   @Output() deleteTask: EventEmitter<number> = new EventEmitter();
   @Output() toggleTask: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onDeleteTask(id: number): void {
-    this.deleteTask.emit(id)
+    this.deleteTask.emit(id);
   }
 
   onToggleTask(status: boolean): void {
     this.toggleTask.emit(status);
   }
-  
-  // Helper functions
-  getDateString(date: string): string {
-    const d = new Date(date);
-    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-  }
 
+  // Helper functions
+  getDateISOString(date: string): string {
+    const d = new Date(date);
+    return d.toISOString();
+  }
 }
