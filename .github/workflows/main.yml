@@ -9,21 +9,19 @@ jobs:
     name: 🎉 Build and Deploy
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "12.x"
+
       - name: npm install and build
         run: |
           npm install
+          npm install -g @angular/cli
           npm run production
 
       - name: 📂 Upload project files
@@ -32,5 +30,5 @@ jobs:
           server: server239.web-hosting.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/taskapp
+          local-dir: dist/
           server-dir: ${{ secrets.APP_FOLDER_PATH }}
