@@ -16,7 +16,7 @@
     <div class="task-item-title">
       {{ task.title }}
     </div>
-    <div *ngIf="showDate">{{ getDateString(task.due_date) }}</div>
+    <div *ngIf="showDate">{{ task.due_date | date: "fullDate" }}</div>
   </div>
 
   <mat-icon
