@@ -28,14 +28,9 @@ export class TaskService {
     return this.http.get(this.apiUrl + 'tasks/after-tomorrow');
   }
 
-  deleteTask(task: Task): Observable<Task> {
-    return this.http.delete<Task>(this.apiUrl + 'tasks/' + task.id);
+  deleteTask(task: Task): Observable<any> {
+    return this.http.delete(this.apiUrl + 'tasks/' + task.id);
   }
-
-  // updateTaskReminder(task: Task): Observable<Task> {
-  //   const url = `${this.apiUrl}/${task.id}`;
-  //   //return this.http.put<Task>(url, task, httpOptions);
-  // }
 
   addTask(task: Task): Observable<any> {
     return this.http.post(this.apiUrl + 'tasks', task);

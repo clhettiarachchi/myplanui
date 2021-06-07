@@ -6,7 +6,7 @@
       *ngFor="let task of todayTasks"
       [task]="task"
       (deleteTask)="onDeleteTask(task)"
-      (toggleTask)="onToggleTask(task.id)"
+      (toggleTask)="onToggleTask(task.id, 'today')"
     ></app-task-list-item>
   </ul>
 
@@ -17,7 +17,7 @@
       *ngFor="let task of tomorrowTasks"
       [task]="task"
       (deleteTask)="onDeleteTask(task)"
-      (toggleTask)="onToggleTask(task.id)"
+      (toggleTask)="onToggleTask(task.id, 'tomorrow')"
     ></app-task-list-item>
   </ul>
 
@@ -29,7 +29,7 @@
       [task]="task"
       [showDate]="true"
       (deleteTask)="onDeleteTask(task)"
-      (toggleTask)="onToggleTask(task.id)"
+      (toggleTask)="onToggleTask(task.id, 'upcoming')"
     ></app-task-list-item>
   </ul>
 </div>

@@ -33,18 +33,33 @@ export class TaskListComponent implements OnInit {
   }
 
   onDeleteTask(task: Task) {
-    this.taskService.deleteTask(task).subscribe((result) => {
-      if (result) {
+    this.taskService.deleteTask(task).subscribe((res) => {
+      if (res['status']) {
+        console.log(1);
         this.fetch();
+        console.log(1);
       }
     });
   }
 
-  onToggleTask(id: number | any) {
-    this.taskService.toggleTask(id).subscribe((result) => {
-      if (result) {
-        this.fetch();
+  onToggleTask(id: number | any, taskType: string) {
+    if (taskType === 'today') {
+      const task = this.todayTasks.find((task) => (task.id = id));
+      if (task) {
+        task.completed = !task?.completed;
       }
-    });
+    } else if (taskType === 'tomorrow') {
+      const task = this.tomorrowTasks.find((task) => (task.id = id));
+      if (task) {
+        task.completed = !task?.completed;
+      }
+    } else if (taskType === 'upcoming') {
+      const task = this.upcomingTasks.find((task) => (task.id = id));
+      if (task) {
+        task.completed = !task?.completed;
+      }
+    }
+
+    this.taskService.toggleTask(id).subscribe();
   }
 }
