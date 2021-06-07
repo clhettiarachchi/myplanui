@@ -44,19 +44,19 @@ export class TaskListComponent implements OnInit {
 
   onToggleTask(id: number | any, taskType: string) {
     if (taskType === 'today') {
-      const task = this.todayTasks.find((task) => (task.id = id));
+      const task = this.todayTasks.find((task) => task.id === id);
       if (task) {
-        task.completed = !task?.completed;
+        task.completed = !task.completed;
       }
     } else if (taskType === 'tomorrow') {
-      const task = this.tomorrowTasks.find((task) => (task.id = id));
+      const task = this.tomorrowTasks.find((task) => task.id === id);
       if (task) {
-        task.completed = !task?.completed;
+        task.completed = !task.completed;
       }
     } else if (taskType === 'upcoming') {
-      const task = this.upcomingTasks.find((task) => (task.id = id));
+      const task = this.upcomingTasks.find((task) => task.id === id);
       if (task) {
-        task.completed = !task?.completed;
+        task.completed = !task.completed;
       }
     }
 
