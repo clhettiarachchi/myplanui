@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-task-list-item',
@@ -27,5 +28,9 @@ export class TaskListItemComponent implements OnInit {
   getDateISOString(date: string): string {
     const d = new Date(date);
     return d.toISOString();
+  }
+
+  getDateString(date: string) {
+    return moment(date).format('MM/DD/YY');
   }
 }
