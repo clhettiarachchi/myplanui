@@ -23,6 +23,7 @@ export class AddTaskComponent implements OnInit {
   title: string = '';
   due_date: any = '';
   description: string = '';
+  minDate = moment().toISOString();
 
   addTaskForm: FormGroup = this.fb.group({
     title: ['', Validators.required],
