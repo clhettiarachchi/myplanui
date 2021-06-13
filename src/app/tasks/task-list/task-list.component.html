@@ -1,35 +1,59 @@
 <div class="tasks-list">
-  <!-- Today tasks -->
-  <h3 class="mb-2">Today</h3>
-  <ul class="list-unstyled">
-    <app-task-list-item
-      *ngFor="let task of todayTasks"
-      [task]="task"
-      (deleteTask)="onDeleteTask(task)"
-      (toggleTask)="onToggleTask(task.id, 'today')"
-    ></app-task-list-item>
-  </ul>
+  <mat-accordion>
+    <mat-expansion-panel [disabled]="!todayTasks.length">
+      <!-- Header -->
+      <mat-expansion-panel-header>
+        <mat-panel-title> Today ({{ todayTasks.length }}) </mat-panel-title>
+      </mat-expansion-panel-header>
 
-  <!-- Tomorrow tasks -->
-  <h3 class="mb-2">Tomorrow</h3>
-  <ul class="list-unstyled">
-    <app-task-list-item
-      *ngFor="let task of tomorrowTasks"
-      [task]="task"
-      (deleteTask)="onDeleteTask(task)"
-      (toggleTask)="onToggleTask(task.id, 'tomorrow')"
-    ></app-task-list-item>
-  </ul>
+      <!-- Content -->
+      <ul class="list-unstyled">
+        <app-task-list-item
+          *ngFor="let task of todayTasks"
+          [task]="task"
+          (deleteTask)="onDeleteTask(task)"
+          (toggleTask)="onToggleTask(task.id, 'today')"
+        ></app-task-list-item>
+      </ul>
+    </mat-expansion-panel>
 
-  <!-- Upcoming tasks -->
-  <h3 class="mb-2">Upcoming</h3>
-  <ul class="list-unstyled">
-    <app-task-list-item
-      *ngFor="let task of upcomingTasks"
-      [task]="task"
-      [showDate]="true"
-      (deleteTask)="onDeleteTask(task)"
-      (toggleTask)="onToggleTask(task.id, 'upcoming')"
-    ></app-task-list-item>
-  </ul>
+    <mat-expansion-panel [disabled]="!tomorrowTasks.length">
+      <!-- Header -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Tomorrow ({{ tomorrowTasks.length }})
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- Content -->
+      <ul class="list-unstyled">
+        <app-task-list-item
+          *ngFor="let task of tomorrowTasks"
+          [task]="task"
+          (deleteTask)="onDeleteTask(task)"
+          (toggleTask)="onToggleTask(task.id, 'tomorrow')"
+        ></app-task-list-item>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [disabled]="!upcomingTasks.length">
+      <!-- Header -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Upcoming ({{ upcomingTasks.length }})
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- Content -->
+      <ul class="list-unstyled">
+        <app-task-list-item
+          *ngFor="let task of upcomingTasks"
+          [task]="task"
+          [showDate]="true"
+          (deleteTask)="onDeleteTask(task)"
+          (toggleTask)="onToggleTask(task.id, 'upcoming')"
+        ></app-task-list-item>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

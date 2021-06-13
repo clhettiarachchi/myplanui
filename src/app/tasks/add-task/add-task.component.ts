@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Task } from '../Task';
 import { TaskService } from '../task.service';
 import {
@@ -8,6 +8,7 @@ import {
   FormControl,
 } from '@angular/forms';
 import * as moment from 'moment';
+import { RefreshService } from '@app/_services/refresh.service';
 
 @Component({
   selector: 'app-add-task',
@@ -29,7 +30,11 @@ export class AddTaskComponent implements OnInit {
     description: [''],
   });
 
-  constructor(private taskService: TaskService, private fb: FormBuilder) {}
+  constructor(
+    private taskService: TaskService,
+    private fb: FormBuilder,
+    private refreshService: RefreshService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -52,6 +57,7 @@ export class AddTaskComponent implements OnInit {
       if (res['status'] === true) {
         this.loading = false;
         this.showSuccess = true;
+        this.refreshService.setTaskListRefresh(true);
         setTimeout(() => {
           this.showSuccess = false;
         }, 3000);
