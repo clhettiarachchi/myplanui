@@ -17,6 +17,7 @@
         [matDatepicker]="picker"
         formControlName="due_date"
         [(ngModel)]="due_date"
+        [min]="minDate"
       />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
