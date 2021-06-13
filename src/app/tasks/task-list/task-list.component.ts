@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 import { Task } from '../Task';
+import { RefreshService } from '@app/_services/refresh.service';
 
 @Component({
   selector: 'app-task-list',
@@ -12,10 +13,19 @@ export class TaskListComponent implements OnInit {
   tomorrowTasks: Task[] = [];
   upcomingTasks: Task[] = [];
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private refreshService: RefreshService
+  ) {}
 
   ngOnInit(): void {
     this.fetch();
+
+    this.refreshService.taskListRefresh.subscribe((bool: boolean) => {
+      if (bool === true) {
+        this.fetch();
+      }
+    });
   }
 
   fetch() {
