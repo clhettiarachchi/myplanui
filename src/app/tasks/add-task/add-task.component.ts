@@ -58,6 +58,14 @@ export class AddTaskComponent implements OnInit {
       if (res['status'] === true) {
         this.loading = false;
         this.showSuccess = true;
+
+        this.addTaskForm.reset();
+
+        Object.keys(this.addTaskForm.controls).forEach((key) => {
+          const control = this.addTaskForm.controls[key];
+          control.setErrors(null);
+        });
+
         this.refreshService.setTaskListRefresh(true);
         setTimeout(() => {
           this.showSuccess = false;
